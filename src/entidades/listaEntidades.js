@@ -44,6 +44,20 @@ const profissoes = {
         custo: this.custo
       })
     }
+  },
+  pescador: {
+    custo: {
+      ouro: 200,
+      alimento: 2,
+      minAlimento: 300
+    },
+    create: function () {
+      return new Pessoa({
+        alimento: 1,
+        itemColeta: 'alimento',
+        custo: this.custo
+      })
+    }
   }
 }
 
@@ -53,9 +67,12 @@ const construcoes = {
       ouro: 500,
       madeira: 500
     },
+    locacao: 5,
     create: function () {
       return new Contrucao({
-        custo: this.custo
+        custo: this.custo,
+        nome: "casa",
+        locacao: this.locacao
       })
     }
   },
@@ -64,9 +81,12 @@ const construcoes = {
       ouro: 400,
       madeira: 600
     },
+    locacao: 3,
     create: function () {
       return new Contrucao({
-        custo: this.custo
+        custo: this.custo,
+        nome: "fazenda",
+        locacao: this.locacao
       })
     }
   }

@@ -1,7 +1,9 @@
-import { recursos } from "../states.js"
+import { game, recursos } from "../states.js"
 
 class Contrucao {
-  constructor({custo}){
+  constructor({custo, nome, locacao}){
+    this.locacao = locacao
+    this.nome = nome
     this.custo = {
       ouro: custo.ouro,
       madeira: custo.madeira
@@ -12,6 +14,8 @@ class Contrucao {
   create(){
     recursos.ouro -= this.custo.ouro
     recursos.madeira -= this.custo.madeira
+
+    game.construcoes[this.nome]++
   }
 }
 

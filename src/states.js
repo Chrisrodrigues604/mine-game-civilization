@@ -1,3 +1,5 @@
+import { construcoes } from "./entidades/listaEntidades.js";
+
 class Data {
   constructor() {
     this.dia = 1;
@@ -24,30 +26,36 @@ class Data {
 
 
 const recursos = {
-  ouro: 500,
-  madeira: 100,
-  alimento: 1000
+  ouro: 5000000,
+  madeira: 1000000,
+  alimento: 10000000
 }
 
 const TRABALHADORES = [];
 
 
+class StateGame {
+  constructor(){
+    this.data = new Data(),
+    this.trabalhadores = {
+      lenhador: 0,
+      fazendeiro: 0,
+      minerador: 0,
+      pescador: 0
+    },
+    this.construcoes ={
+      fazenda: 0,
+      casa: 1
+    },
+    this.populacao = 0,
+    this.populacaoMax = 5
+  }
 
-
-const game = {
-  data: new Data(),
-  trabalhadores: {
-    lenhador: 0,
-    fazendeiro: 0,
-    minerador: 0
-  },
-  construcoes: {
-    fazenda: 0,
-
-  },
-  populacao: 0,
-  populacaoMax: 5,
+  update(){
+    this.populacaoMax = Number(this.construcoes.casa) * Number(construcoes['casa'].locacao)
+  }
 }
 
+const game = new StateGame()
 
 export { recursos, game, TRABALHADORES }

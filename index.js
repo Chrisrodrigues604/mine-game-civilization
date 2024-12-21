@@ -10,30 +10,40 @@ import * as UI from "./src/ui/index.js"
 const velocidadeDia = 1000 // 1 segundo
 
 // Funções dos botões
+UI.btnComprarPescador.addEventListener("click", () => comprar("pescador", "pessoa", () => {
+  atualizarBtns()
+  infoMetricas.innerText = calcularProducaoPorSegundo()
+}))
+
 UI.btnComprarMinerador.addEventListener("click", () => comprar("minerador", "pessoa", () => {
   atualizarBtns()
   infoMetricas.innerText = calcularProducaoPorSegundo()
 
 }))
+
 UI.btnComprarLenhador.addEventListener("click", () => comprar("lenhador", "pessoa", () => {
   atualizarBtns()
   infoMetricas.innerText = calcularProducaoPorSegundo()
 
 }))
+
 UI.btnComprarCasa.addEventListener("click", () => comprar("casa", "construcao", () => {
   atualizarBtns()
   infoMetricas.innerText = calcularProducaoPorSegundo()
 
 }))
+
 UI.btnComprarFazenda.addEventListener("click", () => comprar("fazenda", "construcao", () => {
   atualizarBtns()
   infoMetricas.innerText = calcularProducaoPorSegundo()
 
 }))
+
 UI.btnComprarFazendeiro.addEventListener("click", () => comprar("fazendeiro", "pessoa", () => {
   atualizarBtns()
   infoMetricas.innerText = calcularProducaoPorSegundo()
 }))
+
 UI.btnVenderMadeira.addEventListener('click', () => vender('madeira'))
 
 function atualizarBtns() {

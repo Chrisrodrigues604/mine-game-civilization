@@ -6,6 +6,7 @@ const btnComprarCasa = document.getElementById("btnComprarCasa");
 const btnComprarFazenda = document.getElementById("btnComprarFazenda");
 const btnComprarFazendeiro = document.getElementById("btnComprarFazendeiro");
 const btnVenderMadeira = document.getElementById("btnVenderMadeira");
+const btnComprarPescador = document.getElementById("btnComprarPescador");
 
 // Info
 const infoFazendas = document.getElementById("infoFazendas");
@@ -23,14 +24,12 @@ export {
   btnComprarCasa,
   btnComprarFazenda,
   btnComprarFazendeiro,
-  btnVenderMadeira
-}
-
-export {
+  btnVenderMadeira,
   infoFazendas,
   infoData,
   infoOuro,
   infoMadeira,
   infoPopulacao,
-  infoAlimento
+  infoAlimento,
+  btnComprarPescador
 }
