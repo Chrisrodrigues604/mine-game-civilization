@@ -13,7 +13,8 @@ const profissoes = {
       return new Pessoa({
         alimento: 1,
         itemColeta: 'alimento',
-        custo: this.custo
+        custo: this.custo,
+        entidadeName: 'fazendeiro',
       })
     }
   },
@@ -27,7 +28,8 @@ const profissoes = {
       return new Pessoa({
         alimento: 1,
         itemColeta: 'ouro',
-        custo: this.custo
+        custo: this.custo,
+        entidadeName: 'minerador',
       })
     },
   },
@@ -41,7 +43,8 @@ const profissoes = {
       return new Pessoa({
         alimento: 1,
         itemColeta: 'madeira',
-        custo: this.custo
+        custo: this.custo,
+        entidadeName: 'lenhador',
       })
     }
   },
@@ -49,12 +52,13 @@ const profissoes = {
     custo: {
       ouro: 200,
       alimento: 2,
-      minAlimento: 300
+      minAlimento: 300,
     },
     create: function () {
       return new Pessoa({
         alimento: 1,
         itemColeta: 'alimento',
+        entidadeName: 'pescador',
         custo: this.custo
       })
     }

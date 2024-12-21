@@ -1,10 +1,14 @@
+import { profissoes } from '../entidades/listaEntidades.js';
 import { TRABALHADORES, game, recursos } from '../states.js';
 
 class SaveGame {
   save() {
     localStorage.setItem('game', JSON.stringify(game));
     localStorage.setItem('recursos', JSON.stringify(recursos));
-    localStorage.setItem('trabalhadores', JSON.stringify(TRABALHADORES));
+    if(TRABALHADORES.length !== 0){
+
+      localStorage.setItem('trabalhadores', JSON.stringify(TRABALHADORES));
+    }
     console.log('Jogo salvo com sucesso!');
   }
 
@@ -14,7 +18,7 @@ class SaveGame {
     const trabalhadoresSalvos = JSON.parse(localStorage.getItem('trabalhadores'));
 
     if (gameSalvo) {
-      Object.assign(game, gameSalvo);
+      game.loadState(gameSalvo)
     }
 
     if (recursosSalvos) {
@@ -22,7 +26,17 @@ class SaveGame {
     }
 
     if (trabalhadoresSalvos) {
-      Object.assign(TRABALHADORES, trabalhadoresSalvos);
+
+      trabalhadoresSalvos.forEach(element => {  
+        const profissaoEscolhida = profissoes[element.entidadeName] || null
+        console.log(element.entidadeName)
+        const novoTrabalhador = profissaoEscolhida.create()
+        TRABALHADORES.push(novoTrabalhador)
+      })
+
+      TRABALHADORES.forEach(e => {
+        e.trabalhar()
+      })
     }
 
     console.log('Jogo carregado com sucesso!');

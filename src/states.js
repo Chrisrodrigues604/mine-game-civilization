@@ -1,10 +1,10 @@
 import { construcoes } from "./entidades/listaEntidades.js";
 
 class Data {
-  constructor() {
-    this.dia = 1;
-    this.mes = 1;
-    this.ano = 2000;
+  constructor({ dia = 1, mes = 1, ano = 2000 } = {}) {
+    this.dia = dia;
+    this.mes = mes;
+    this.ano = ano;
   }
 
   passarDia(viradaAno) {
@@ -18,7 +18,7 @@ class Data {
       if (this.mes > mesesNoAno) {
         this.mes = 1;
         this.ano++;
-        viradaAno()
+        viradaAno();
       }
     }
   }
@@ -33,27 +33,41 @@ let recursos = {
 let TRABALHADORES = [];
 
 class StateGame {
-  constructor(){
-    this.data = new Data(),
+  constructor(gameSalvo) {
+    this.data = new Data();
     this.trabalhadores = {
       lenhador: 0,
       fazendeiro: 0,
       minerador: 0,
-      pescador: 0
-    },
-    this.construcoes ={
+      pescador: 0,
+    };
+    this.construcoes = {
       fazenda: 0,
-      casa: 1
-    },
-    this.populacao = 0,
-    this.populacaoMax = 5
+      casa: 1,
+    };
+    this.populacao = 0;
+    this.populacaoMax = 5;
+
+    // Se houver dados salvos, restaura o estado
+    if (gameSalvo) {
+      this.loadState(gameSalvo);
+    }
   }
 
-  update(){
-    this.populacaoMax = Number(this.construcoes.casa) * Number(construcoes['casa'].locacao)
+  update() {
+    this.populacaoMax = Number(this.construcoes.casa) * Number(construcoes['casa'].locacao);
+  }
+
+  // Método para restaurar o estado
+  loadState(state) {
+    this.data = new Data(state.data); // Recrie objetos complexos como Data
+    Object.assign(this.trabalhadores, state.trabalhadores);
+    Object.assign(this.construcoes, state.construcoes);
+    this.populacao = state.populacao;
+    this.populacaoMax = state.populacaoMax;
   }
 }
 
 let game = new StateGame()
 
-export { recursos, game, TRABALHADORES }
+export { recursos, game, TRABALHADORES, StateGame }
