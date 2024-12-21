@@ -1,11 +1,11 @@
-import { profissoes } from "../entidades/listaEntidades.js"
+import { profissoes, construcoes } from "../entidades/listaEntidades.js"
 import { game, recursos, TRABALHADORES } from "../states.js"
 import { aumentarPreco } from "../utils/aumentarPreco.js"
 
 function comprar(entidade, tipo, callback) {
   if (tipo === "pessoa") {
-    const profissaoEscolhida = profissoes[item] || null
-    if (!profissaoEscolhida) return console.error("Profissão inválida:", item)
+    const profissaoEscolhida = profissoes[entidade] || null
+    if (!profissaoEscolhida) return console.error("Profissão inválida:", entidade)
 
     if (game.populacao >= game.populacaoMax) {
       return alert("Construa mais casas para aumentar a população!")
@@ -16,7 +16,7 @@ function comprar(entidade, tipo, callback) {
     if (profissaoEscolhida.custo.madeira && recursos.madeira < profissaoEscolhida.custo.madeira) {
       return alert("Madeira insuficiente!")
     }
-    if (profissaoEscolhida.custo.fazenda && game.construcoes.fazenda <= game.trabalhadores.fazendeiro) {
+    if (profissaoEscolhida.custo.fazenda && game.construcoes.fazenda * construcoes['fazenda'].locacao <= game.trabalhadores.fazendeiro) {
       return alert("Fazenda insuficiente!")
     }
     if (profissaoEscolhida.custo.minAlimento && recursos.alimento < profissaoEscolhida.custo.minAlimento) {
@@ -30,7 +30,7 @@ function comprar(entidade, tipo, callback) {
 
     aumentarPreco(profissaoEscolhida, 'ouro')
 
-    game.trabalhadores[item]++
+    game.trabalhadores[entidade]++
 
   } else if (tipo === "construcao") {
     const construcaoEscolhida = construcoes[entidade] || null

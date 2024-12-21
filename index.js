@@ -52,6 +52,7 @@ function atualizarBtns() {
   UI.btnComprarFazendeiro.innerText = `Comprar Fazendeiro - ${profissoes["fazendeiro"].custo.ouro} ouro`
   UI.btnComprarCasa.innerText = `Comprar Casa - ${construcoes["casa"].custo.ouro} ouro, ${construcoes["casa"].custo.madeira} madeira`
   UI.btnComprarFazenda.innerText = `Comprar Fazenda - ${construcoes["fazenda"].custo.ouro} ouro, ${construcoes["casa"].custo.madeira} madeira`
+  UI.btnComprarPescador.innerText = `Comprar Pescador - ${profissoes["pescador"].custo.ouro} ouro`
 }
 
 function proximoDia() {
@@ -65,6 +66,8 @@ function proximoDia() {
   TRABALHADORES.forEach((pessoa) => {
     pessoa.comer()
   })
+
+  game.update()
 }
 
 
@@ -74,15 +77,14 @@ function render() {
     UI.infoOuro.innerText = `Ouro: ${recursos.ouro} / qtd: ${game.trabalhadores.minerador}`
     UI.infoMadeira.innerText = `Madeira: ${recursos.madeira} / qtd: ${game.trabalhadores.lenhador}`
     UI.infoPopulacao.innerText = `População: ${game.populacao}/${game.populacaoMax}`
-    UI.infoFazendas.innerText = `Fazendas: ${game.construcoes.fazenda} / qtd: ${game.trabalhadores.fazendeiro}`
-    UI.infoAlimento.innerText = `Alimento: ${recursos.alimento}`
+    UI.infoFazendas.innerText = `Fazendas: ${game.construcoes.fazenda * construcoes['fazenda'].locacao} / qtd: ${game.trabalhadores.fazendeiro}`
+    UI.infoAlimento.innerText = `Alimento: ${recursos.alimento} / Pescador: ${game.trabalhadores.pescador}`
   }
   requestAnimationFrame(render)
 }
 
 //start
 window.addEventListener('load', () => {
-
   setInterval(proximoDia, velocidadeDia)
   requestAnimationFrame(render)
   atualizarBtns()
