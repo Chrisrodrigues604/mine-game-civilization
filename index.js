@@ -5,6 +5,9 @@ import { comprar } from "./src/loja/comprarEntidade.js"
 import { vender } from "./src/loja/venderRecursos.js"
 
 import * as UI from "./src/ui/index.js"
+import { SaveGame } from "./src/save/saveGame.js"
+
+const savaSate = new SaveGame()
 
 // Configurações
 const velocidadeDia = 1000 // 1 segundo
@@ -68,6 +71,8 @@ function proximoDia() {
   })
 
   game.update()
+
+  savaSate.save()
 }
 
 
@@ -88,6 +93,7 @@ window.addEventListener('load', () => {
   setInterval(proximoDia, velocidadeDia)
   requestAnimationFrame(render)
   atualizarBtns()
+  savaSate.load()
 })
 
 
