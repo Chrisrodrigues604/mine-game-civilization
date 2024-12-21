@@ -26,9 +26,9 @@ class Data {
 
 
 const recursos = {
-  ouro: 5000000,
-  madeira: 1000000,
-  alimento: 10000000
+  ouro: 500,
+  madeira: 100,
+  alimento: 2000
 }
 
 const TRABALHADORES = [];
