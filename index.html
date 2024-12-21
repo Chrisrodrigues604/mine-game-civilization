@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Construção Medieval</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #f4f1e1; 
+      font-family: 'Georgia', serif; 
+    }
+    .container {
+      background-image: url('https://png.pngtree.com/background/20230414/original/pngtree-medieval-castle-game-scene-picture-image_2424800.jpg'); /* Imagem de fundo com textura */
+      background-size: cover;
+      background-position: center;
+    }
+    .btn {
+      background-color: #8b5e3c; 
+      border: 2px solid #6b4f2f; 
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #6b4f2f; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container mx-auto p-4 min-h-screen space-y-8 flex flex-col justify-between">
+
+    <!-- Informações do Jogo -->
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-5">
+      <div class="bg-white p-4 rounded-lg shadow-md w-full md:w-1/2">
+        <p id="infoData">Data:</p>
+        <p id="infoOuro">Ouro:</p>
+        <p id="infoMadeira">Madeira:</p>
+        <p id="infoPopulacao">População:</p>
+        <p id="infoAlimento">Alimento:</p>
+        <p id="infoFazendas">Fazendas:</p>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow-md w-full md:w-1/2">
+        <p id="infoMetricas" class="text-lg font-semibold">Informações do Jogo</p>
+      </div>
+    </div>
+
+    <!-- Seção de Compra -->
+    <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-4 rounded-md">
+      <div class="bg-gray-800 text-white p-4 rounded-lg">
+        <h2 class="text-2xl font-semibold mb-4">Ações</h2>
+        <button id="btnComprarComida" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-md mb-2">Comprar Comida</button>
+        <button id="btnVenderComida" class="w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-md mb-2">Vender Comida</button>
+        <button id="btnComprarMadeira" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md mb-2">Comprar Madeira</button>
+        <button id="btnVenderMadeira" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 rounded-md mb-2">Vender Madeira</button>
+      </div>
+
+      <div class="p-4 rounded-lg w-full">
+        <h2 class="text-xl font-semibold mb-2">Comprar Trabalhadores</h2>
+        <button id="btnComprarMinerador" class="btn mb-2 w-full">Comprar Minerador</button>
+        <button id="btnComprarLenhador" class="btn mb-2 w-full">Comprar Lenhador</button>
+        <button id="btnComprarFazendeiro" class="btn mb-2 w-full">Comprar Fazendeiro</button>
+      </div>
+
+      <div class="p-4 rounded-lg w-full">
+        <h2 class="text-xl font-semibold mb-2">Comprar Construções</h2>
+        <button id="btnComprarFazenda" class="btn mb-2 w-full">Comprar Fazenda</button>
+        <button id="btnComprarCasa" class="btn mb-2 w-full">Comprar Casa</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+<script type="module" src="index.js"></script>
