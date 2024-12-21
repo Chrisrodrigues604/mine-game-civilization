@@ -2,7 +2,7 @@ import { profissoes } from "../entidades/listaEntidades.js"
 import { game, recursos, TRABALHADORES } from "../states.js"
 import { aumentarPreco } from "../utils/aumentarPreco.js"
 
-function comprar(item, tipo, callback) {
+function comprar(entidade, tipo, callback) {
   if (tipo === "pessoa") {
     const profissaoEscolhida = profissoes[item] || null
     if (!profissaoEscolhida) return console.error("Profissão inválida:", item)
@@ -33,8 +33,8 @@ function comprar(item, tipo, callback) {
     game.trabalhadores[item]++
 
   } else if (tipo === "construcao") {
-    const construcaoEscolhida = construcoes[item] || null
-    if (!construcaoEscolhida) return console.error("Construção inválida:", item)
+    const construcaoEscolhida = construcoes[entidade] || null
+    if (!construcaoEscolhida) return console.error("Construção inválida:", entidade)
 
     if (construcaoEscolhida.custo.ouro && recursos.ouro < construcaoEscolhida.custo.ouro) {
       return alert("Ouro insuficiente!")
