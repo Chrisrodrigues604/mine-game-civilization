@@ -47,7 +47,7 @@ Dica: Equilibre suas decisões entre construir, contratar e acumular recursos pa
 ````
 ---
 
-🆙 Contribuições
+## 🆙 Contribuições
 Contribuições são bem-vindas para tornar o Jogo de Construção Medieval ainda mais envolvente e desafiador! Aqui estão algumas ideias para melhorias que você pode implementar:
 
 🌟 Recursos Sugeridos
