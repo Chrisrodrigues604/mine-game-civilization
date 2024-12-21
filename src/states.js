@@ -24,15 +24,13 @@ class Data {
   }
 }
 
-
-const recursos = {
+let recursos = {
   ouro: 500,
   madeira: 100,
   alimento: 2000
 }
 
-const TRABALHADORES = [];
-
+let TRABALHADORES = [];
 
 class StateGame {
   constructor(){
@@ -56,6 +54,6 @@ class StateGame {
   }
 }
 
-const game = new StateGame()
+let game = new StateGame()
 
 export { recursos, game, TRABALHADORES }
