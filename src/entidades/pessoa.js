@@ -1,7 +1,8 @@
 import { recursos } from "../states.js"
 
 class Pessoa {
-  constructor({ alimento, custo, itemColeta }) {
+  constructor({ alimento, custo, itemColeta, entidadeName }) {
+    this.entidadeName = entidadeName
     this.itemColeta = itemColeta
     this.custo = {
       ouro: custo.ouro,
